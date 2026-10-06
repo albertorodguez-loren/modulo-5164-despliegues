@@ -1,0 +1,6 @@
+"#!/bin/bash" 
+"echo '=== MODO DESARROLLO ==='" 
+"echo 'Listando ficheros del proyecto:'" 
+"dir /a" 
+"echo 'Comprobando procesos activos:'" 
+"ps aux | grep node" 
