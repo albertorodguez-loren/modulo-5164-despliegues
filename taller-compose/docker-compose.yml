@@ -1,0 +1,21 @@
+---
+services:
+  servidor_web:
+    image: nginx:alpine
+    container_name: web_proxy
+    ports:
+      - "8000:80"
+    networks:
+      - red_app
+    depends_on:
+      - backend_app
+
+  backend_app:
+    image: redis:alpine
+    container_name: cache_redis
+    networks:
+      - red_app
+
+networks:
+  red_app:
+    driver: bridge
