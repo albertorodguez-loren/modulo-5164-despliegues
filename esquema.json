@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "datacenter": {
+      "type": "string"
+    },
+    "version_api": {
+      "type": "number",
+      "minimum": 1
+    },
+    "produccion": {
+      "type": "boolean"
+    },
+    "mantenimiento_programado": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "etiquetas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "metricas_globales": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "temperatura_media_c": {
+          "type": "number"
+        },
+        "eficiencia_pue": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 3
+        }
+      },
+      "required": ["temperatura_media_c", "eficiencia_pue"]
+    },
+    "servidores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "ip": {
+            "type": "string"
+          },
+          "puerto": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "servicios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "recursos": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ram_gb": {
+                "type": "number",
+                "minimum": 1
+              },
+              "vcpus": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "almacenamiento_ssd_tb": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": ["ram_gb", "vcpus", "almacenamiento_ssd_tb"]
+          },
+          "ultimo_mantenimiento": {
+            "type": ["string", "null"],
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          }
+        },
+        "required": ["id", "ip", "puerto", "activo", "servicios", "recursos", "ultimo_mantenimiento"]
+      }
+    }
+  },
+  "required": ["datacenter", "version_api", "produccion", "servidores"]
+}

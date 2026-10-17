@@ -1,0 +1,18 @@
+---
+aplicacion: AcmeCorp Portal
+servidor:
+  entorno: ${APP_ENV}
+  puerto: ${APP_PORT}
+  ssl: false
+base_datos:
+  motor: ${DB_ENGINE}
+  host: ${DB_HOST}
+  puerto: ${DB_PORT}
+  nombre_bd: ${DB_NAME}
+  usuario: ${DB_USER}
+  contrasena: ${DB_PASSWORD}
+credenciales:
+  api_key: ${API_KEY}
+registro:
+  nivel: ${LOG_LEVEL}
+  salida_consola: true

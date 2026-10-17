@@ -1,0 +1,52 @@
+{
+  "datacenter": "DC-Madrid-01",
+  "version_api": 2.5,
+  "produccion": true,
+  "mantenimiento_programado": null,
+  "etiquetas": ["infraestructura", "critico", "pci-dss"],
+  "metricas_globales": {
+    "temperatura_media_c": 21.8,
+    "eficiencia_pue": 1.24
+  },
+  "servidores": [
+    {
+      "id": "srv-web-01",
+      "ip": "192.168.1.10",
+      "puerto": 8080,
+      "activo": true,
+      "servicios": ["nginx", "php-fpm"],
+      "recursos": {
+        "ram_gb": 16,
+        "vcpus": 4,
+        "almacenamiento_ssd_tb": 1.5
+      },
+      "ultimo_mantenimiento": "2026-03-15"
+    },
+    {
+      "id": "srv-db-01",
+      "ip": "192.168.1.20",
+      "puerto": 5432,
+      "activo": true,
+      "servicios": ["postgresql"],
+      "recursos": {
+        "ram_gb": 64,
+        "vcpus": 16,
+        "almacenamiento_ssd_tb": 8
+      },
+      "ultimo_mantenimiento": null
+    },
+    {
+      "id": "srv-test-01",
+      "ip": "192.168.1.99",
+      "puerto": 3000,
+      "activo": false,
+      "servicios": [],
+      "recursos": {
+        "ram_gb": 8,
+        "vcpus": 2,
+        "almacenamiento_ssd_tb": 0.5
+      },
+      "ultimo_mantenimiento": null
+    }
+  ]
+}
